@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href=" /img/favicon.png" type="image/x-icon">
+        <title>Register </title>
+        <link rel="stylesheet" href=" /css/styles.css">
+        <link rel="stylesheet" href=" /css/bootstrap.css">
+        <link rel="stylesheet" href=" /css/jquery.mmenu.all.css">
+        <link rel="stylesheet" href=" /css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+       
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    </head>
+<body>
+
+    <div class="register-container">
+        <div class="register-form">
+            <img src=" /img/logo.png" alt="Trendy Treads Logo" class="logo">
+            <h2 class="register-title">Register</h2>
+            
+            <form action="/register" method="post" class="form-fields">
+                <input type="text" name="username" placeholder="Username" value="user5" required>
+                <input type="text" name="name" placeholder="Name" value="new user" required>
+                <input type="password" name="password" placeholder="Password" value="user5" required>
+                <select name="role" class="select-role">
+                    <option value="USER">User</option>
+                    <option value="ADMIN">Admin</option>
+                </select>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+            
+            <a href="/login" class="login-link">Login</a>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src=" /js/script.js"></script>
+    <script src=" /js/Chatscript.js"></script>
+</body>
+
+<footer class="main_footer">
+<p>Kael S. Moreira G., Seda Dadak, Aibiike Omurzakova, Phuong Uyen Dang © 2023 - All Rights Reserved</p>
+</footer>
+</html>

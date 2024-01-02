@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href=" /img/favicon.png" type="image/x-icon">
+        <title>Cart</title>
+        <link rel="stylesheet" href=" /css/details.css">
+        <link rel="stylesheet" href=" /css/bootstrap.css">
+        <link rel="stylesheet" href=" /css/jquery.mmenu.all.css">
+        <link rel="stylesheet" href=" /css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+       
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    </head>
+    <h1 th:text="${product.name}">Product Name</h1>
+    <p><strong>Brand:</strong> <span th:text="${product.brand.name}">Product Brand</span></p>
+    <p><strong>Price:</strong> <span th:text="${'$' + product.price}">Product Price</span></p>
+    <p><strong>Quantity in Stock:</strong> <span th:text="${product.stock}">Product Quantity</span></p>
+
+    <!-- Form for adding product to cart -->
+    <form th:action="@{/add-cart}" method="post">
+        <input type="hidden" th:name="productId" th:value="${product.id}" />
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" value="1" />
+        <input type="submit" value="Add to Cart" />
+    </form>
+
+    <a href="/product">Back to Products</a>
+</body>
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- Owl Carousel JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <!-- Your custom script -->
+        <script src=" /js/script.js"></script>
+        <!-- Chatbot -->
+        <script src=" /js/Chatscript.js"></script>
+</body>
+
+<footer class="main_footer">
+    <p>Kael S. Moreira G., Seda Dadak, Aibiike Omurzakova, Phuong Uyen Dang © 2023 - All Rights Reserved</p>
+</footer>
+</html>

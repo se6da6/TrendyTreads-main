@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href=" /img/favicon.png" type="image/x-icon">
+        <title>Cart</title>
+        <link rel="stylesheet" href=" /css/cart.css">
+        <link rel="stylesheet" href=" /css/bootstrap.css">
+        <link rel="stylesheet" href=" /css/jquery.mmenu.all.css">
+        <link rel="stylesheet" href=" /css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+       
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    </head>
+<body>
+    <div class="header-container">
+        <img src=" /img/logo.png" alt="Company Logo" class="logo" />
+        <h1 class="cartTitle" >Shopping Cart</h1>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="productEntity : ${cart.products}">
+                <td th:text="${productEntity.key.name}"></td>
+                <td th:text="${productEntity.key.price}"></td>
+                <td>
+                    <form th:action="@{/cart/update}" method="post">
+                        <input type="hidden" th:name="productId" th:value="${productEntity.key.id}" />
+                        <input type="number" th:name="quantity" th:value="${productEntity.value}" />
+                        <input type="submit" value="Update" />
+                    </form>
+                </td>
+                <td th:text="${productEntity.key.price * productEntity.value}">Total Price</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">Subtotal:</td>
+                <td th:text="${#numbers.formatDecimal(subtotal, 1, 'COMMA', 2, 'POINT')}"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Tax: (13%)</td>
+                <td th:text="${#numbers.formatDecimal(tax, 1, 'COMMA', 2, 'POINT')}"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Total Amount:</td>
+                <td th:text="${#numbers.formatDecimal(totalAmount, 1, 'COMMA', 2, 'POINT')}"></td>
+            </tr>
+        </tfoot>
+    </table>
+   
+    <div class="actions-container">
+        <form th:action="@{/continue-shopping}" method="get">
+            <input type="submit" value="Continue Shopping" class="continue-btn" />
+        </form>
+        <a th:href="@{/checkout}" class="checkout-btn">Checkout</a>
+    </div>
+    
+</body>
+<footer class="main_footer">
+    <p>Kael S. Moreira G., Seda Dadak, Aibiike Omurzakova, Phuong Uyen Dang © 2023 - All Rights Reserved</p>
+</footer>
+</html>
